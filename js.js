@@ -6,12 +6,29 @@ let out2       = document.querySelector("#worker_2");
 let btn_start  = document.querySelector("#btn_start");
 let btn_stop   = document.querySelector("#btn_stop");
 let heyWorker  = document.querySelector("#heyWorker");
-let msg        = document.querySelector("#msg")
+let msg        = document.querySelector("#msg");
+let time       = document.querySelector( "#time")
 
 
 setInterval( function () {
     let n = new Date();
-    document.querySelector( "#time").innerHTML = n.toLocaleTimeString();
+    let h = n.getHours();
+    let m = n.getMinutes();
+    let s = n.getSeconds();
+
+    if(m < 10 ){
+        m = "0" + m ;
+    }
+    if(s < 10 ){
+        s = "0" + s ;
+    }
+
+    const html = `
+    <span>${h}</span> :   
+    <span>${m}</span> :   
+    <span>${s}</span>    
+    `
+    time.innerHTML = html;
 },1 )
 
 
